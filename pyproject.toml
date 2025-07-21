@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contact"
+version = "0.1.0"
+description = "Contact form API for FastAPI"
+authors = [
+    { name="Your Name", email="your@email.com" }
+]
+dependencies = [
+    "fastapi",
+    "pydantic",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+email = [
+    "smtplib",  # stdlib, but listed for clarity
+    "email",    # stdlib, but listed for clarity
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
