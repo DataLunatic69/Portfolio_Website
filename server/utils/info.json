@@ -1,0 +1,44 @@
+{
+    "basic_info": {
+      "name": "Aman Singh",
+      "email": "aman@example.com",
+      "location": "India",
+      "role": "Student at IIIT Guwahati"
+    },
+    "education": [
+      {
+        "degree": "B.Tech in Computer Science",
+        "institution": "IIIT Guwahati",
+        "year": "2022 - 2026"
+      }
+    ],
+    "github_projects": [
+      {
+        "name": "Math Misconception Classifier",
+        "description": "A machine learning model to identify misconceptions in math MCQs using embeddings and transformers.",
+        "url": "https://github.com/username/math-misconception-classifier"
+      },
+      {
+        "name": "Virtual Digit Recognizer",
+        "description": "A computer vision project that recognizes hand-drawn digits in real-time using CNN.",
+        "url": "https://github.com/username/virtual-digit-recognizer"
+      },
+      {
+        "name": "LipSync AI",
+        "description": "A lip-sync generator using transformers to align audio with facial movements.",
+        "url": "https://github.com/username/lipsync-ai"
+      }
+    ],
+    "hobbies": [
+      "Reading about AI and ML",
+      "Contributing to open source",
+      "Playing chess",
+      "Watching documentaries"
+    ],
+    "future_plans": {
+      "academic": "Pursue research in Machine Learning and NLP under faculty guidance.",
+      "career": "Join a top tech company or research lab as an ML engineer.",
+      "personal": "Build AI tools that solve real-world problems and contribute to open science."
+    }
+  }
+  

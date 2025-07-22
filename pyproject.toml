@@ -6,8 +6,12 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.116.1",
-    "pydantic[email]>=2.11.7",
     "uvicorn[standard]>=0.35.0",
-    "pydantic[email]",
+    "pydantic[email]>=2.11.7",
     "python-dotenv",
+    "langchain-core",                
+    "langchain-groq",             
+    "langgraph",                   
+    "langchain-community"  
+    "langgraph"             
 ]
