@@ -9,9 +9,12 @@ dependencies = [
     "uvicorn[standard]>=0.35.0",
     "pydantic[email]>=2.11.7",
     "python-dotenv",
-    "langchain-core",                
-    "langchain-groq",             
-    "langgraph",                   
-    "langchain-community"  
-    "langgraph"             
+    "langchain-core",
+    "langchain-groq",
+    "langgraph",
+    "langchain-community",
+    "chromadb",
+    "huggingface-hub",
+    "sentence-transformers",
+    "slowapi",
 ]

@@ -15,7 +15,13 @@ class State(TypedDict):
     messages: Annotated[list, add_messages]
 
 retriever_tool = get_retriever()
-tools = [retriever_tool]
+
+def search_tool(query: str) -> str:
+    """Searches the vectorstore for relevant documents."""
+    results = retriever_tool.get_relevant_documents(query)
+    return "\n".join([doc.page_content for doc in results])
+
+tools = [search_tool]
 
 llm = get_llm()
 
@@ -50,9 +56,9 @@ async def tool_node(state):
         tool_id = tool_call["id"]
         
         # Handle the search tool
-        if tool_name == "tavily_search_results_json":
+        if tool_name == "search_tool":
             # Execute the search tool with the provided arguments
-            search_results = await retriever_tool.ainvoke(tool_args)
+            search_results = await retriever_tool.ainvoke(tool_args["query"])
             
             # Create a ToolMessage for this result
             tool_message = ToolMessage(
@@ -137,7 +143,7 @@ async def generate_chat_responses(message: str, checkpoint_id: Optional[str] = N
         elif event_type == "on_chat_model_end":
             # Check if there are tool calls for search
             tool_calls = event["data"]["output"].tool_calls if hasattr(event["data"]["output"], "tool_calls") else []
-            search_calls = [call for call in tool_calls if call["name"] == "tavily_search_results_json"]
+            search_calls = [call for call in tool_calls if call["name"] == "search_tool"]
             
             if search_calls:
                 # Signal that a search is starting
@@ -146,7 +152,7 @@ async def generate_chat_responses(message: str, checkpoint_id: Optional[str] = N
                 safe_query = search_query.replace('"', '\\"').replace("'", "\\'").replace("\n", "\\n")
                 yield f"data: {{\"type\": \"search_start\", \"query\": \"{safe_query}\"}}\n\n"
                 
-        elif event_type == "on_tool_end" and event["name"] == "tavily_search_results_json":
+        elif event_type == "on_tool_end" and event["name"] == "search_tool":
             # Search completed - send results or error
             output = event["data"]["output"]
             

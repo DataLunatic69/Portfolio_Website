@@ -1,16 +1,13 @@
-from sys import api_version
+from ..config import settings
 from langchain_groq import ChatGroq
-from dotenv import load_dotenv
-import os
-
-model_name=os.getenv("MODEL_NAME")
-api_key=os.getenv("API_KEY")
 
 
 def get_llm():
+    if not settings.GROQ_API_KEY:
+        raise ValueError("API key is not set")
     return ChatGroq(
-        model_name=model_name,
-        api_key=api_key
+        model_name=settings.MODEL_NAME,
+        api_key=settings.GROQ_API_KEY
     )
 
 
