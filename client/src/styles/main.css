@@ -1,0 +1,14 @@
+.app-container { font-family: Inter, sans-serif; background: #fffbe5; min-height: 100vh; }
+.navbar { display: flex; border-bottom: 2px solid #ffe4b5; }
+.navbar a { padding: 1em 2em; text-decoration: none; color: #333; }
+.navbar a.active { border-bottom: 3px solid #ffbc7c; background: #fff9f3; }
+.chatbot-card, .contact-card { margin: 3em auto; max-width: 500px; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px #ffbc7c33; padding: 2em; }
+.chat-window { min-height: 200px; background: #fdf6ee; border-radius: 12px; padding: 1em; margin-bottom: 1em; overflow-y: auto; }
+.chat-bubble { padding: 0.6em 1.2em; border-radius: 16px; margin-bottom: 0.6em; max-width: 80%; }
+.user-bubble { background: #ffd19a; margin-left: auto; }
+.assistant-bubble { background: #f5e2c3; margin-right: auto; }
+.send-btn { background: #ffbc7c; border: none; color: #fff; border-radius: 6px; padding: 0.5em 1.5em; }
+.form-header { font-size: 1.3em; margin-bottom: 1em; }
+.form-success, .form-error { margin-top: 1em; }
+.form-success { color: #3c8527; }
+.form-error { color: #c62828; }
